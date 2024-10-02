@@ -11,10 +11,13 @@ inputs:
     required: false
     default: ${{ github.token }}
 
-  file:
+  input-file:
     required: true
 
-  variables:
+  output-file:
+    required: false
+
+  vars:
     required: true
 
 runs:

@@ -1,10 +1,12 @@
+import fs from 'node:fs'
+
 import mustache from 'mustache'
 mustache.escape = (text) => text
 
 import core from '@actions/core'
-import github from '@actions/github'
 
-const file = core.getInput('file')
+const input = core.getInput('input-file')
+const output = core.getInput('output-file') ?? input
 const vars = core.getInput('vars').split('\n')
 
 const regex = /{{(?<key>.*)}}[ ]*=[ ]*(?<value>.*)/
@@ -15,6 +17,5 @@ const options = vars.reduce((accumulator, variable) => {
   return accumulator
 }, {})
 
-console.log(github.context)
-console.log(options)
-console.log(file)
+const data = fs.readFileSync(input, 'utf8')
+fs.writeFileSync(output, mustache.render(data, { ...options }))
