@@ -18,6 +18,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
 
-      - name: Release
-        uses: o0th/action-create-release@v0.0.4
+      - id: release
+        uses: o0th/action-create-release@v0.0.5
+
+      - uses: ./
+        with:
+          input-file: README.template.md
+          output-file: README.md
+          vars: |
+            {{version}} = ${{ steps.release.outputs.version }}
+
+      - run: |
+          git diff
+          git checkout master
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "docs: render readme"
+          git push origin master
