@@ -16,8 +16,12 @@ jobs:
     steps:
 
       - uses: actions/checkout@v4
+
       - uses: ./
         with:
-          file: testing.md
+          input-file: testing.md
+          output-file: testing.md
           vars: |
             {{name}} = World!
+
+      - run: cat testing.md
