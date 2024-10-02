@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/checkout@v4
 
-      - uses: o0th/action-mustache-me@v1.0.0
+      - uses: o0th/action-mustache-me@v0.1.0
         with:
           input-file: README.template.md
           output-file: README.md
