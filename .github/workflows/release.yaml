@@ -1,0 +1,23 @@
+name: release 
+
+on:
+  push:
+    branches:
+      - master 
+    paths:
+      - index.js
+      - action.yaml
+      - package.json
+      - package-lock.json
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Release
+        uses: o0th/action-create-release@0.0.4
