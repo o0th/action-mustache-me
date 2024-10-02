@@ -1,0 +1,19 @@
+name: testing
+
+on:
+  push:
+    branches:
+      - master 
+
+permissions:
+  contents: write
+
+jobs:
+
+  testing:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+      - uses: ./

@@ -1,0 +1,22 @@
+name: action-mustache-me
+description: given a file mustache it
+
+branding:
+  icon: git-pull-request
+  color: red
+
+inputs:
+
+  token:
+    required: false
+    default: ${{ github.token }}
+
+  file:
+    required: true
+
+  variables:
+    required: true
+
+runs:
+  using: 'node20'
+  main: 'index.js'
