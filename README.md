@@ -29,5 +29,5 @@ jobs:
           input-file: README.template.md
           output-file: README.md
           vars: |
-            \ = World!
+            {{name}} = World!
 ```
