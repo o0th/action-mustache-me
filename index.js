@@ -7,7 +7,7 @@ const input = core.getInput('input-file')
 const output = core.getInput('output-file') ?? input
 const vars = core.getInput('vars').split('\n')
 
-const regex = /{{(?<key>.*)}}[ ]*=[ ]*(?<value>.*)/
+const regex = /(?<key>[^ =]*) ?= ?(?<value>[^\n]*)\n?/
 const options = vars.reduce((accumulator, variable) => {
   const matches = variable.match(regex)
   const { key, value } = matches.groups
