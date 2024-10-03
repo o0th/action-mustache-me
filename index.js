@@ -1,8 +1,6 @@
 import fs from 'node:fs'
 
 import mustache from 'mustache'
-mustache.escape = (text) => text
-
 import core from '@actions/core'
 
 const input = core.getInput('input-file')
