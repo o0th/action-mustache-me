@@ -24,10 +24,10 @@ jobs:
 
       - uses: actions/checkout@v4
 
-      - uses: o0th/action-mustache-me@v0.1.0
+      - uses: o0th/action-mustache-me@v0.1.1
         with:
           input-file: README.template.md
           output-file: README.md
           vars: |
-            {{name}} = World!
+            name = World!
 ```
